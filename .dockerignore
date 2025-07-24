@@ -2,3 +2,4 @@
 venv/
 frontend/
 worker/
+.env

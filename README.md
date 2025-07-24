@@ -29,24 +29,8 @@
 ## Deploy by docker
 
 ```yaml
-services:
-  chatgpt-tarot-divination:
-    image: ghcr.io/dreamhunter2333/chatgpt-tarot-divination:latest
-    container_name: chatgpt-tarot-divination
-    restart: always
-    ports:
-      - 8000:8000
-    environment:
-      - api_key=sk-xxx
-      # - api_base=https://api.deepseek.com/v1 # optional
-      # - model=deepseek-chat # optional
-      # - rate_limit=10/minute # optional
-      # - user_rate_limit=600/hour # optional
-      - github_client_id=xxx
-      - github_client_secret=xxx
-      - jwt_secret=secret
-      - ad_client=ca-pub-xxx
-      - ad_slot=123
+docker build -t tarot-ai .
+docker run -p 8000:8000 tarot-ai
 ```
 
 ## Local Run
