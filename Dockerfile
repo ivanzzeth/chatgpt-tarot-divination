@@ -3,7 +3,7 @@ FROM node:19-alpine AS frontend-builder
 WORKDIR /app
 
 # 安装 pnpm
-RUN npm install -g pnpm
+RUN npm install -g pnpm@^8
 
 # 复制前端依赖文件
 COPY frontend/package.json ./
