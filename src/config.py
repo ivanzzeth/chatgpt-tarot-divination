@@ -14,8 +14,8 @@ class Settings(BaseSettings):
 
     # OpenAI API settings
     api_key: str = Field(default="", exclude=True)
-    api_base: str = "https://api.openai.com/v1"
-    model: str = "gpt-3.5-turbo"
+    api_base: str = "https://api.deepseek.com/v1"
+    model: str = "deepseek-chat"
 
     # github oauth login settings
     github_client_id: str = ""

@@ -38,8 +38,8 @@ services:
       - 8000:8000
     environment:
       - api_key=sk-xxx
-      # - api_base=https://api.openai.com/v1 # optional
-      # - model=gpt-3.5-turbo # optional
+      # - api_base=https://api.deepseek.com/v1 # optional
+      # - model=deepseek-chat # optional
       # - rate_limit=10/minute # optional
       # - user_rate_limit=600/hour # optional
       - github_client_id=xxx
@@ -51,11 +51,14 @@ services:
 
 ## Local Run
 
+使用的Node.js 版本为 `v19.9.0`，Python版本为 `3.11.5` 其他版本请自行验证。
+使用deepseek替换了原始的chatgpt。
+
 创建 `.env` 文件，填入如下内容, `api_key` 为必填项, 其余为可选项
 
 ```bash
 api_key=sk-xxxx
-api_base=https://api.openai.com/v1
+api_base=https://api.deepseek.com/v1
 github_client_id=xxx
 github_client_secret=xxx
 ad_client=ca-pub-xxx
