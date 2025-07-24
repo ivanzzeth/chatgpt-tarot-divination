@@ -1,5 +1,9 @@
 .git/
 venv/
-frontend/
 worker/
 .env
+
+# 只忽略前端构建产物和依赖
+frontend/node_modules/
+frontend/dist/
+frontend/.pnpm-store/

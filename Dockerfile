@@ -1,12 +1,13 @@
 # ---- 阶段 1：Node.js 19 编译前端 ----
 FROM node:19-alpine AS frontend-builder
-WORKDIR /frontend
+WORKDIR /app
 
 # 安装 pnpm
 RUN npm install -g pnpm
 
 # 复制前端依赖文件
-COPY frontend/package.json frontend/pnpm-lock.yaml ./
+COPY frontend/package.json ./
+COPY frontend/pnpm-lock.yaml ./
 
 # 安装依赖
 RUN pnpm install --frozen-lockfile
@@ -32,7 +33,7 @@ COPY . /app
 WORKDIR /app
 
 # 把阶段1构建好的 dist 复制到 /app/dist
-COPY --from=frontend-builder /frontend/dist /app/dist
+COPY --from=frontend-builder /app/dist /app/dist
 
 EXPOSE 8000
 ENTRYPOINT ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
